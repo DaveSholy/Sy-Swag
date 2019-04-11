@@ -194,22 +194,7 @@ if (message.content.toLowerCase().startsWith(prefix + 'banlist')){
  });
 
 
-const bannedwords = [
-    "زبي",
-    "خنيث",
-    "شرموط",
-    "انيكك",
-    "كس امك",
-    "العن امك"
 
-  ];
-
-client.on('message',  message => {
-  if(bannedwords.some(word => message.content.includes(word))) {
-    message.delete()
-    message.reply(" احترم نفسك , يمنع السب  تمامنا هنا  ").then(msg => {msg.delete(5000)});;
-  };
-});
 
 
 client.on('guildMemberAdd', member => {
