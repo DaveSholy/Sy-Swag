@@ -150,31 +150,6 @@ client.on('message', message => {
 });
 
 
-client.on('message' , async (message) => {
-var prefix = "%"
-    if(message.content.startsWith(prefix + "topinv")) {
-if(message.author.bot) return;
-if(!message.channel.guild) return message.reply(' Error : \` Guild Command \`');
-  var invites = await message.guild.fetchInvites();
-    invites = invites.array();
-    arraySort(invites, 'uses', { reverse: true });
-    let possibleInvites = ['User Invited |  Uses '];
-    invites.forEach(i => {
-        if (i.uses === 0) { 
-            return;
-        }
-      possibleInvites.push(['\n\ ' +'<@'+ i.inviter.id +'>' + '  :  ' +   i.uses]);
-     //معلومه بسيطه يمديك تكرر العمليهه أكثر من مره
-    })
-    const embed = new Discord.RichEmbed()
- .setColor('RANDOM')
-    .addField("Top Invites." ,`${(possibleInvites)}`)
-
-    message.channel.send(embed)
-    }
-});
-
-
 client.on('message',async message => {
      
      const arraySort = require('array-sort');
@@ -192,9 +167,6 @@ if (message.content.toLowerCase().startsWith(prefix + 'banlist')){
     })
 }
  });
-
-
-
 
 
 client.on('guildMemberAdd', member => {
@@ -245,25 +217,6 @@ client.on('message', message => {
 });
 
 
-client.on('message', message => {
-    if(message.content === prefix+'راتب'){
-        message.channel.send('#daily')
-    }
-});
-
-client.on('message', message => {
-    if(message.content === prefix+'مبلغ'){
-        message.channel.send('#credits')
-    }
-});
-
-client.on('message', message => {
-    if(message.content === prefix+'ريب'){
-        message.channel.send("#rep "+"<@" + myid + ">")
-    }
-});
-
-
 client.on('message', message => { 
     const mm = message.mentions.members.first() || message.member;
     if(message.content.startsWith(prefix + "avatar")){
@@ -278,12 +231,7 @@ client.on('message', message => {
 });
 
 
-client.on('ready', () => { 
-    setInterval (function () {
-      client.guilds.get('556461482410246179').channels.get('564917034685562882').send(`#daily`)
-      
-    }, 86400000); 
-          })
+
 
 
 client.login(process.env.BOT_TOKEN);
