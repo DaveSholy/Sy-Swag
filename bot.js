@@ -22,7 +22,7 @@ client.on("message", message => {
 
 
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`Bot Swag`,"http://twitch.tv/S-F")
+client.user.setGame(`Bot,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
